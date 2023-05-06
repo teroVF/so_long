@@ -3,17 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   validate.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: antero <antero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 00:58:01 by anvieira          #+#    #+#             */
-/*   Updated: 2023/05/05 01:46:59 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/05/06 01:30:30 by antero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 //i starts at one because the first line and the last are only ones
-static int  only_01CEP(char **map)
+
+void if_valid_path()
+{}
+
+static	int only_01CEP(char **map)
 {
 	int     i;
 	int     j;
@@ -78,6 +82,7 @@ char	validate_map(char **map)
 		return (0);
 	if(only_01CEP(map) == 0)
 		return (0);
-
+	if (if_valid_path)
+		return (0);
 	return (1);
 }

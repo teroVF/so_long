@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: antero <antero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:09:28 by antero            #+#    #+#             */
-/*   Updated: 2023/05/05 00:59:28 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/05/06 02:50:48 by antero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,27 @@
 
 typedef struct s_game
 {
-	int		width;
-	int 	height;
-	int		player_x;
-	int		player_y;
+	void	*mlx;
+	void	*window;
+	int		window_x;
+	int		window_y;
 	int		collectibles;
-	char	**map;	
+	int		player;
+	int		exit;
+	char	**map;
+	char	**map_valid
 }		t_game;
+
+typedef struct s_img
+{
+	void	*img_ptr;
+	char	*addr;
+	int		h;
+	int		w;
+	int		bpp;
+	int		endian;
+	int		line_len;
+}		t_img
 
 char	validate_map(char **map);
 
