@@ -6,16 +6,14 @@ LIBFT = libft/libft.a
 CC = cc
 SRC_PATH = src/
 _PATH = obj/
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g
 MLXFLAG = -lmlx -lXext -lX11
 INCLUDES = push_swap.h
 RM = rm -fr
 
 #Sources
-FILES        =     	main validate
+FILES        =     	main validate read render
 
-BONUS_FILES	=		main_checker free_checker push_checker reverse_checker rotate_checker swap_checker get_checker \
-					validate_checker
 
 PS_SRC = $(addsuffix .c, $(FILES))
 PS_OBJ = $(addsuffix .o, $(FILES))
@@ -46,7 +44,7 @@ $(LIBFT):
 #MANDATORY
 $(NAME):	$(LIBFT) $(PS_OBJ)
 			@echo "$(YELLOW) Compiling: $@ $(DEF_COLOR)"
-			@$(CC) $(CFLAGS) $(PS_OBJ) $(LIBFT) -o $@
+			@$(CC) $(CFLAGS) -L./mlx $(PS_OBJ) $(LIBFT) $(MLXFLAG) -o $@
 
 %.o:		%.c
 			@echo "$(YELLOW) Compiling: $< $(DEF_COLOR)"

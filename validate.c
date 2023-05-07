@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antero <antero@student.42.fr>              +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 00:58:01 by anvieira          #+#    #+#             */
-/*   Updated: 2023/05/06 01:30:30 by antero           ###   ########.fr       */
+/*   Updated: 2023/05/07 00:33:36 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 //i starts at one because the first line and the last are only ones
 
-void if_valid_path()
-{}
+// void if_valid_path()
+// {}
 
 static	int only_01CEP(char **map)
 {
@@ -24,7 +24,7 @@ static	int only_01CEP(char **map)
 	
 	i = 1;
 	j = 1;
-
+	printf("cheguei");
 	while (map[i])
 	{
 		while(map[i][j])
@@ -82,7 +82,8 @@ char	validate_map(char **map)
 		return (0);
 	if(only_01CEP(map) == 0)
 		return (0);
-	if (if_valid_path)
-		return (0);
+		/* ainda por fazer */
+	// if (if_valid_path)
+	// 	return (0);
 	return (1);
 }
