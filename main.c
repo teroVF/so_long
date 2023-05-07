@@ -6,7 +6,7 @@
 /*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 00:57:15 by anvieira          #+#    #+#             */
-/*   Updated: 2023/05/07 01:41:37 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/05/07 02:04:34 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,7 @@ int main(int argc, char *argv[])
 	game->map = read_map(pwd);
 	printf("%s\n", game->map[0]);
 	if(validate_map(game->map) == 0)
-	{
-	printf("entrou1");
 		return (EXIT_FAILURE);
-	}
 	render(game);
 	
 	// initialization(game);
