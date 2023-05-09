@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+         #
+#    By: antero <antero@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/20 14:44:19 by anvieira          #+#    #+#              #
-#    Updated: 2023/05/03 01:44:22 by anvieira         ###   ########.fr        #
+#    Updated: 2023/05/09 03:05:27 by antero           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ FUNCTION	+=	ft_split ft_strchr ft_strdup ft_striteri ft_strjoin \
 			ft_strnstr ft_strrchr ft_strtrim ft_substr ft_printf \
 			ft_putchar_ret ft_putnbrhminor ft_putnbrhplus ft_putnbr_ret ft_putnbru_ret \
 			ft_putptr_ret ft_putstr_ret get_next_line \
-			ft_error ft_pow
+			ft_error ft_pow ft_free_xy
 
 
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: antero <antero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 00:58:01 by anvieira          #+#    #+#             */
-/*   Updated: 2023/05/07 00:33:36 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/05/08 02:00:40 by antero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,9 @@ static	int only_01CEP(char **map)
 {
 	int     i;
 	int     j;
-	
+
 	i = 1;
 	j = 1;
-	printf("cheguei");
 	while (map[i])
 	{
 		while(map[i][j])
@@ -36,7 +35,7 @@ static	int only_01CEP(char **map)
         }
 		i++;
 		j = 0;
-    } 
+    }
 	return (1);
 }
 
@@ -63,7 +62,7 @@ static int  if_is_a_rect1(char **map)
 			while (map[i][j] == '1')
 				j++;
 			if (j != length)
-				return (0); 
+				return (0);
 		}
 		else
 		{

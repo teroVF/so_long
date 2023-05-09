@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: antero <antero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 01:06:55 by anvieira          #+#    #+#             */
-/*   Updated: 2023/05/04 21:40:11 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/05/09 03:06:24 by antero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ t_list			*ft_lstnew(void *content);
 void			ft_lstdelone(t_list *lst, void (*del)(void*));
 t_list			*ft_lstlast(t_list *lst);
 t_list			*ft_lstmap(t_list *lst, void
-					*(*f)(void *), void (*del)(void *));					
+					*(*f)(void *), void (*del)(void *));
 void			ft_lstadd_back(t_list **lst, t_list *new);
 void			ft_lstadd_front(t_list **lst, t_list *new);
 int				ft_printf(const char *str, ...);
@@ -84,5 +84,7 @@ char			*get_next_line(int fd);
 void			ft_error(char *error_msg);
 int				ft_pow(int b, int exp);
 char			*get_next_line(int fd);
+void			ft_free_xy(char **arr);
+
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: antero <antero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 15:12:19 by anvieira          #+#    #+#             */
-/*   Updated: 2022/12/19 10:23:11 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/05/08 02:20:41 by antero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,6 @@ char	**ft_split(char const *s, char c)
 		}
 		i++;
 	}
-	str[j] = 0;
+	str[j] = NULL;
 	return (str);
 }

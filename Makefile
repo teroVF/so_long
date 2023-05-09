@@ -12,7 +12,7 @@ INCLUDES = push_swap.h
 RM = rm -fr
 
 #Sources
-FILES        =     	main validate read render
+FILES        =     	main validate read config render move
 
 
 PS_SRC = $(addsuffix .c, $(FILES))
@@ -41,10 +41,10 @@ all: $(NAME)
 $(LIBFT):
 	@cd libft && $(MAKE) all
 
-#MANDATORY
+#MANDATORY -L./mlx na 42
 $(NAME):	$(LIBFT) $(PS_OBJ)
 			@echo "$(YELLOW) Compiling: $@ $(DEF_COLOR)"
-			@$(CC) $(CFLAGS) -L./mlx $(PS_OBJ) $(LIBFT) $(MLXFLAG) -o $@
+			@$(CC) $(CFLAGS) $(PS_OBJ) $(LIBFT) $(MLXFLAG) -o $@
 
 %.o:		%.c
 			@echo "$(YELLOW) Compiling: $< $(DEF_COLOR)"

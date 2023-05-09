@@ -3,57 +3,64 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: antero <antero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 00:57:15 by anvieira          #+#    #+#             */
-/*   Updated: 2023/05/07 02:04:34 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/05/09 15:14:06 by antero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-// void	fill_with_elements()
-// {
-	
-// }
-
-// initialization (t_game *game)
-// {
-// 	void *img_ptr;
-// 	game->mlx = mlx_init();
-// 	if (!game->mlx)
-// 		return (1);
-// 	game->window = mlx_new_window (game->mlx, game->window_x, game->window_y, "So_long");
-// 	if (!game->window)
-// 		return (2);
-		
-	
-// 	mlx_loop(!game->mlx);
-
-// }
-
-t_game *struck_init()
+int	end_program(t_game *game)
 {
-		
+	if (!game)
+		return (0);
+	ft_printf("passei 1\n");
+	if (game->mlx)
+		mlx_destroy_display(game->mlx);
+	ft_printf("passei 1\n");
+	if (game->win.win)
+		mlx_destroy_window(game->mlx, game->win.win);
+	ft_printf("passei 1\n");
+	if(game->map)
+		ft_free_xy(game->map);
+	ft_printf("passei 1\n");
+	if (game->map_valid)
+		ft_free_xy(game->map_valid);
+	free(game);
+	ft_printf("passei 1\n");
+	return(0);
+}
+
+t_game *game_init(char *pwd)
+{
+	t_game *game;
+
+	game = (t_game*) malloc(sizeof(t_game) * 1);
+	if(!game)
+		return (NULL);
+	game->map = read_map(pwd);
+	game->map_valid = read_map(pwd);
+	if (game->map == NULL)
+		end_program(game);
+	if(validate_map(game->map) == 0 )
+		end_program(game);
+	config_game(game);
+	render(game);
+	return (game);
 }
 
 int main(int argc, char *argv[])
 {
-	t_game *game;
-	char	*pwd;
+	t_game	*game;
 
 	if (argc < 2)
-		return (1);
-	pwd = ft_strdup("./maps/");
-	pwd = ft_strjoin(pwd, argv[1]);
-	game = struck_init();
-	game->map = read_map(pwd);
-	printf("%s\n", game->map[0]);
-	if(validate_map(game->map) == 0)
 		return (EXIT_FAILURE);
+	game = game_init(argv[1]);
+	if (game == NULL)
+		return (EXIT_FAILURE);
+	config_game(game);
 	render(game);
-	
-	// initialization(game);
-	// render_game(game);
 	return 0;
 }
