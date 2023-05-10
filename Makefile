@@ -44,7 +44,7 @@ $(LIBFT):
 #MANDATORY -L./mlx na 42
 $(NAME):	$(LIBFT) $(PS_OBJ)
 			@echo "$(YELLOW) Compiling: $@ $(DEF_COLOR)"
-			@$(CC) $(CFLAGS) $(PS_OBJ) $(LIBFT) $(MLXFLAG) -o $@
+			@$(CC) $(CFLAGS) $(PS_OBJ) $(LIBFT) -L./mlx $(MLXFLAG) -o $@
 
 %.o:		%.c
 			@echo "$(YELLOW) Compiling: $< $(DEF_COLOR)"

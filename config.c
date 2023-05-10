@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   config.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antero <antero@student.42.fr>              +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 16:34:20 by antero            #+#    #+#             */
-/*   Updated: 2023/05/09 03:28:20 by antero           ###   ########.fr       */
+/*   Updated: 2023/05/10 00:05:35 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,12 +108,19 @@ static void player_position(t_game *game)
 }
 
 
-void	config_game(t_game *game)
+int	config_game(t_game *game)
 {
 	if(count_collectibles(game) == 0)
+	{
 		end_program(game);
+		return 0;
+	}
 	if(count_exit_and_start(game) == 0)
+	{
 		end_program(game);
+		return 0;
+	}
 	player_position(game);
 	window_xy_init(game);
+	return (1);
 }

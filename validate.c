@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antero <antero@student.42.fr>              +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 00:58:01 by anvieira          #+#    #+#             */
-/*   Updated: 2023/05/08 02:00:40 by antero           ###   ########.fr       */
+/*   Updated: 2023/05/10 02:45:36 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,13 @@ static int  if_is_a_rect1(char **map)
 	return (1);
 }
 
-char	validate_map(char **map)
+int	validate_map(t_game *game)
 {
-	if(if_is_a_rect1(map) == 0)
+	ft_printf("%s\n", game->map[0]);
+	if(if_is_a_rect1(game->map) == 0)
 		return (0);
-	if(only_01CEP(map) == 0)
+	ft_printf("1\n");
+	if(only_01CEP(game->map) == 0)
 		return (0);
 		/* ainda por fazer */
 	// if (if_valid_path)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antero <antero@student.42.fr>              +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:09:28 by antero            #+#    #+#             */
-/*   Updated: 2023/05/09 03:36:06 by antero           ###   ########.fr       */
+/*   Updated: 2023/05/10 02:40:21 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,10 @@ typedef struct s_game
 
 }		t_game;
 
-char	validate_map(char **map);
+int		validate_map(t_game *game);
 char	**read_map(char *pwd);
 void	render(t_game *game);
-void	config_game(t_game *game);
+int		config_game(t_game *game);
 void	move_player_y(t_game *game, int i);
 void	move_player_x(t_game *game, int i);
 int		end_program(t_game *game);

@@ -36,7 +36,7 @@
   "C_Cpp_Runner.useAddressSanitizer": false,
   "C_Cpp_Runner.showCompilationTime": false,
   "editor.tabSize": 4,
-    "editor.insertSpaces": false,
+  "editor.insertSpaces": false,
   "editor.renderWhitespace": "all",
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true
