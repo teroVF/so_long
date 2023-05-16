@@ -6,16 +6,11 @@
 /*   By: antero <antero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 00:58:01 by anvieira          #+#    #+#             */
-/*   Updated: 2023/05/12 01:10:50 by antero           ###   ########.fr       */
+/*   Updated: 2023/05/15 06:02:43 by antero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
-
-typedef struct size {
-	int		y;
-	int		x;
-}	t_size;
+#include "so_long_bonus.h"
 
 void	fill_path(char **map, int x, int y, t_size s)
 {
@@ -43,6 +38,7 @@ int	if_valid_path(t_game *game)
 	while (game->map_valid[s.y] != NULL)
 		s.y++;
 	s.x = ft_strlen(game->map_valid[0]);
+
 	player_position(game);
 	fill_path(game->map_valid, game->py.x, game->py.y, s);
 	while (game->map_valid[y])
@@ -56,6 +52,7 @@ int	if_valid_path(t_game *game)
 		y++;
 		x = 0;
 	}
+	ft_free_xy(game->map_valid);
 	return (1);
 }
 
@@ -81,34 +78,34 @@ static int	only_char(char **map)
 	return (1);
 }
 
-static int	if_is_a_rect1(char **map)
+static int	if_is_a_rect1(t_game *game)
 {
-	size_t		i;
-	size_t		j;
-	size_t		length;
+	int		i;
+	int		j;
 
 	i = 0;
 	j = 0;
-	length = ft_strlen(map[0]);
-	while (map[i])
+	game->width = ft_strlen(game->map[0]);
+	while (game->map[i])
 	{
-		if (ft_strlen(map[i]) != length)
+		if ((int) ft_strlen(game->map[i]) != game->width)
 			return (0);
 		i++;
 	}
+	game->height = i;
 	i = 0;
-	while (map[i])
+	while (game->map[i])
 	{
-		if (i == 0 || map[i + 1] == NULL)
+		if (i == 0 || game->map[i + 1] == NULL)
 		{
-			while (map[i][j] == '1')
+			while (game->map[i][j] == '1')
 				j++;
-			if (j != length)
+			if (j != game->width)
 				return (0);
 		}
 		else
 		{
-			if (map[i][0] != '1' || map[i][length -1] != '1')
+			if (game->map[i][0] != '1' || game->map[i][game->width -1] != '1')
 				return (0);
 		}
 		j = 0;
@@ -119,7 +116,7 @@ static int	if_is_a_rect1(char **map)
 
 int	validate_map(t_game *game)
 {
-	if (if_is_a_rect1(game->map) == 0)
+	if (if_is_a_rect1(game) == 0)
 		return (0);
 	if (only_char(game->map) == 0)
 		return (0);

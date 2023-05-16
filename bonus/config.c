@@ -6,11 +6,11 @@
 /*   By: antero <antero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 16:34:20 by antero            #+#    #+#             */
-/*   Updated: 2023/05/12 01:15:09 by antero           ###   ########.fr       */
+/*   Updated: 2023/05/13 15:21:00 by antero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 int	count_collectibles(t_game *game)
 {
@@ -117,5 +117,6 @@ int	config_game(t_game *game)
 		return (0);
 	}
 	window_xy_init(game);
+	generate_enemies(game);
 	return (1);
 }

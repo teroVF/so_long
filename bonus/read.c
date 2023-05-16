@@ -6,11 +6,11 @@
 /*   By: antero <antero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 01:27:45 by antero            #+#    #+#             */
-/*   Updated: 2023/05/12 00:59:20 by antero           ###   ########.fr       */
+/*   Updated: 2023/05/13 15:20:22 by antero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 char	**read_map(char *pwd)
 {

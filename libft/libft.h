@@ -6,7 +6,7 @@
 /*   By: antero <antero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 01:06:55 by anvieira          #+#    #+#             */
-/*   Updated: 2023/05/09 03:06:24 by antero           ###   ########.fr       */
+/*   Updated: 2023/05/15 05:53:01 by antero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ void			ft_error(char *error_msg);
 int				ft_pow(int b, int exp);
 char			*get_next_line(int fd);
 void			ft_free_xy(char **arr);
+char			**ft_arrcpy(char **str);
 
 
 #endif

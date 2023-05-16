@@ -1,27 +1,26 @@
 #Standard
 
 NAME = so_long
-CHECKER = checker
 LIBFT = libft/libft.a
 CC = cc
-SRC_PATH = src/
-_PATH = obj/
+BONUS_PATH = ./bonus/
 CFLAGS = -Wall -Werror -Wextra -g
-MLXFLAG = -lmlx -lXext -lX11
+MLXFLAG = -lmlx -lXext -lX11 -lm
 INCLUDES = push_swap.h
 RM = rm -fr
 
 #Sources
-FILES        =     	main validate read config render move
+FILES	=	main validate read config render move
+
+BONUS_FILES	= main validate read config render move put_enemies enemies_move enemy_validate
 
 
 PS_SRC = $(addsuffix .c, $(FILES))
 PS_OBJ = $(addsuffix .o, $(FILES))
-# PS_SRC_BONUS = $(addsuffix .c, $(BONUS_FILES))
-# PS_OBJ_BONUS = $(addsuffix .o, $(BONUS_FILES))
-# SRC_BONUS = $(addprefix $(BONUS_PATH), $(PS_SRC_BONUS))
-# OBJ_BONUS = $(addprefix $(BONUS_PATH), $(PS_OBJ_BONUS))
-# OBJS =	$(addprefix $(OBJ_PATH), $(OBJ))
+BONUS_SRC = $(addsuffix .c, $(BONUS_FILES))
+BONUS_OBJ = $(addsuffix .o, $(BONUS_FILES))
+SRC_BONUS = $(addprefix $(BONUS_PATH), $(BONUS_SRC))
+OBJ_BONUS = $(addprefix $(BONUS_PATH), $(BONUS_OBJ))
 INCS = -I.
 
 #Colors
@@ -44,23 +43,23 @@ $(LIBFT):
 #MANDATORY -L./mlx na 42
 $(NAME):	$(LIBFT) $(PS_OBJ)
 			@echo "$(YELLOW) Compiling: $@ $(DEF_COLOR)"
-			@$(CC) $(CFLAGS) $(PS_OBJ) $(LIBFT) -L./mlx $(MLXFLAG) -o $@
+			@$(CC) $(CFLAGS) $(PS_OBJ) $(LIBFT) $(MLXFLAG) -o $@
 
 %.o:		%.c
 			@echo "$(YELLOW) Compiling: $< $(DEF_COLOR)"
 			@$(CC) $(CFLAGS) -c $< -o $@
 
 bonus:		$(OBJ_BONUS) $(LIBFT)
-			@echo "$(YELLOW) Compiling: $@ $(DEF_COLOR)"
-			@$(CC) $(CFLAGS) $(OBJ_BONUS) $(LIBFT) -o $(CHECKER)
+			@echo "$(YELLOW) Compiling: so_long_bonus $(DEF_COLOR)"
+			@$(CC) $(CFLAGS) $(OBJ_BONUS) $(LIBFT) $(MLXFLAG) -o so_long_bonus
 clean:
 			@cd libft && $(MAKE) clean
-			@$(RM) *.o
+			@find . -name "*.o" -type f -delete
 			@echo "$(BLUE)All objects files cleaned!$(DEF_COLOR)"
 
 fclean: 	clean
 			@cd libft && $(MAKE) fclean
-			@$(RM) $(NAME) $(CHECKER)
+			@$(RM) $(NAME) so_long_bonus
 			@echo "$(CYAN)All executable files cleaned!$(DEF_COLOR)"
 
 re: 		fclean all

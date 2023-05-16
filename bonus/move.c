@@ -6,11 +6,11 @@
 /*   By: antero <antero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 21:06:12 by antero            #+#    #+#             */
-/*   Updated: 2023/05/15 04:34:48 by antero           ###   ########.fr       */
+/*   Updated: 2023/05/15 04:31:03 by antero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	verify_item(t_game *game, int x, int y)
 {
@@ -18,17 +18,21 @@ void	verify_item(t_game *game, int x, int y)
 	{
 		game->elem.item--;
 		game->map[y][x] = '0';
+		if (game->elem.item == 0)
+			enemies_animation(game);
 	}
 	else if (game->map[y][x] == 'E')
 	{
 		if (!game->elem.item)
 		{
-			ft_printf("you win\n");
+			ft_printf("you won\n");
 			end_program(game);
 		}
 		mlx_put_image_to_window(game->mlx, game->win.win,
 			game->img.friend_t, (x * T_SIZE), (y * T_SIZE));
 	}
+	else if (game->map[y][x] == 'Y')
+			end_program(game);
 }
 
 int	if_a_valide_move(t_game *game, int i, char c)

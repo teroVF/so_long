@@ -6,11 +6,11 @@
 /*   By: antero <antero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 19:14:23 by anvieira          #+#    #+#             */
-/*   Updated: 2023/05/12 01:03:21 by antero           ###   ########.fr       */
+/*   Updated: 2023/05/14 18:08:58 by antero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	img_init(t_game *game)
 {
@@ -23,6 +23,9 @@ void	img_init(t_game *game)
 	game->img.wall_t = mlx_xpm_file_to_image(game->mlx, TREE_TILE, &s, &s);
 	game->img.exit_t = mlx_xpm_file_to_image(game->mlx, EXIT, &s, &s);
 	game->img.friend_t = mlx_xpm_file_to_image(game->mlx, FRIENDS, &s, &s);
+	game->img.enemy_t = mlx_xpm_file_to_image(game->mlx, ENEMIES, &s, &s);
+	game->img.enemy_tt = mlx_xpm_file_to_image(game->mlx, ENEMY, &s, &s);
+	game->img.enemy_tev = mlx_xpm_file_to_image(game->mlx, ENEMIES_EV, &s, &s);
 }
 
 void	render_map(t_game *game)
@@ -51,6 +54,9 @@ void	render_map(t_game *game)
 			else if (game->map[y][x] == 'E')
 				mlx_put_image_to_window(game->mlx, game->win.win,
 					game->img.exit_t, (x * T_SIZE), (y * T_SIZE));
+			else if (game->map[y][x] == 'Y')
+				mlx_put_image_to_window(game->mlx, game->win.win,
+					game->img.enemy_t, (x * T_SIZE), (y * T_SIZE));
 		x++;
 		}
 	x = 0;
@@ -70,6 +76,8 @@ int	read_keys(int keypress, t_game *game)
 		move_player_y(game, -1);
 	else if (keypress == ESC)
 		end_program(game);
+	if (game->elem.item == 0)
+		enemy_turn(game);
 	return (0);
 }
 
