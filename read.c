@@ -6,13 +6,13 @@
 /*   By: antero <antero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 01:27:45 by antero            #+#    #+#             */
-/*   Updated: 2023/05/12 00:59:20 by antero           ###   ########.fr       */
+/*   Updated: 2023/05/17 05:07:42 by antero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char	**read_map(char *pwd)
+char	**read_map(char *pwd, t_game *game)
 {
 	char	**map;
 	char	*all_line;
@@ -21,21 +21,20 @@ char	**read_map(char *pwd)
 
 	i = open(pwd, O_RDONLY);
 	if (i == -1)
-		return (NULL);
+		error_msg(game, OPEN_MAP_FILE_ERR);
 	all_line = ft_strdup("");
 	while (1)
 	{
 		line = get_next_line(i);
 		if (line == NULL)
-		{
-			free(line);
 			break ;
-		}
 		all_line = ft_strjoin(all_line, line);
 		free(line);
 		line = NULL;
 	}
 	map = ft_split(all_line, '\n');
 	free(all_line);
+	if (close(i) == -1)
+		error_msg(game, CLOSE_MAP_FILE_ERR);
 	return (map);
 }

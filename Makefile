@@ -10,7 +10,7 @@ INCLUDES = push_swap.h
 RM = rm -fr
 
 #Sources
-FILES	=	main validate read config render move
+FILES	=	main validate read config render move error
 
 BONUS_FILES	= main validate read config render move put_enemies enemies_move enemy_validate
 

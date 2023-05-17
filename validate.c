@@ -6,7 +6,7 @@
 /*   By: antero <antero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 00:58:01 by anvieira          #+#    #+#             */
-/*   Updated: 2023/05/12 01:10:50 by antero           ###   ########.fr       */
+/*   Updated: 2023/05/17 04:10:30 by antero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,10 +120,10 @@ static int	if_is_a_rect1(char **map)
 int	validate_map(t_game *game)
 {
 	if (if_is_a_rect1(game->map) == 0)
-		return (0);
+		error_msg(game, INVALID_FORMAT);
 	if (only_char(game->map) == 0)
-		return (0);
+		error_msg(game, INVALID_ENTITY);
 	if (if_valid_path(game) == 0)
-		return (0);
+		error_msg(game, INVALID_FORMAT);
 	return (1);
 }

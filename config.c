@@ -6,7 +6,7 @@
 /*   By: antero <antero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 16:34:20 by antero            #+#    #+#             */
-/*   Updated: 2023/05/12 01:15:09 by antero           ###   ########.fr       */
+/*   Updated: 2023/05/17 04:13:00 by antero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,15 +107,9 @@ void	player_position(t_game *game)
 int	config_game(t_game *game)
 {
 	if (count_collectibles(game) == 0)
-	{
-		end_program(game);
-		return (0);
-	}
+		error_msg(game, NO_COLLECTIBLES);
 	if (count_exit_and_start(game) == 0)
-	{
-		end_program(game);
-		return (0);
-	}
+		error_msg(game, INVALID_SETUP);
 	window_xy_init(game);
 	return (1);
 }

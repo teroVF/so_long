@@ -6,7 +6,7 @@
 /*   By: antero <antero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 02:59:08 by antero            #+#    #+#             */
-/*   Updated: 2023/05/15 17:47:40 by antero           ###   ########.fr       */
+/*   Updated: 2023/05/17 16:51:15 by antero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,6 @@ void enemies_animation_2(t_game *game)
 void enemies_animation(t_game *game)
 {
     enemies_animation_1(game);
-    sleep(3); // Pausa de 3 segundos
+    sleep(1); // Pausa de 3 segundos
     enemies_animation_2(game);
 }

@@ -6,7 +6,7 @@
 /*   By: antero <antero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 19:14:23 by anvieira          #+#    #+#             */
-/*   Updated: 2023/05/12 01:03:21 by antero           ###   ########.fr       */
+/*   Updated: 2023/05/17 04:57:36 by antero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,23 @@ void	img_init(t_game *game)
 
 	s = T_SIZE;
 	game->img.player_t = mlx_xpm_file_to_image(game->mlx, PLAYER, &s, &s);
+	if(!game->img.player_t)
+		error_msg(game, PLAYER_XPM_ERR);
 	game->img.floor_t = mlx_xpm_file_to_image(game->mlx, FLOOR_TILE, &s, &s);
+	if(!game->img.floor_t)
+		error_msg(game, FLOOR_TILE);
 	game->img.items_t = mlx_xpm_file_to_image(game->mlx, COLLECTIBLES, &s, &s);
+	if(!game->img.items_t)
+		error_msg(game, COLLECTIBLE_XPM_ERR);
 	game->img.wall_t = mlx_xpm_file_to_image(game->mlx, TREE_TILE, &s, &s);
+	if(!game->img.wall_t)
+		error_msg(game, WALL_XPM_ERR);
 	game->img.exit_t = mlx_xpm_file_to_image(game->mlx, EXIT, &s, &s);
+	if(!game->img.exit_t)
+		error_msg(game, EXIT_XPM_ERR);
 	game->img.friend_t = mlx_xpm_file_to_image(game->mlx, FRIENDS, &s, &s);
+	if(!game->img.friend_t)
+		error_msg(game, FRIEND_XPM_ERR);
 }
 
 void	render_map(t_game *game)
@@ -77,12 +89,12 @@ void	render(t_game *game)
 {
 	game->mlx = mlx_init();
 	if (!game->mlx)
-		exit(1);
+		error_msg(game, MLX_INIT_ERR);
 	game->move_n = 0;
 	game->win.win = mlx_new_window(game->mlx,
 			game->win.win_x, game->win.win_y, "SO_LONG");
 	if (!game->win.win)
-		exit(0);
+		error_msg(game, MLX_NEW_WINDOW_ERR);
 	img_init(game);
 	render_map(game);
 	mlx_key_hook(game->win.win, read_keys, game);

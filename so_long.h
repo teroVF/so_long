@@ -6,7 +6,7 @@
 /*   By: antero <antero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:09:28 by antero            #+#    #+#             */
-/*   Updated: 2023/05/12 01:18:06 by antero           ###   ########.fr       */
+/*   Updated: 2023/05/17 04:56:35 by antero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include "mlx.h"
 # include "image.h"
 # include "keys.h"
+# include "error_msg.h"
 
 typedef struct s_elements
 {
@@ -64,12 +65,14 @@ typedef struct s_game
 }		t_game;
 
 int		validate_map(t_game *game);
-char	**read_map(char *pwd);
+char	**read_map(char *pwd, t_game *game);
 void	render(t_game *game);
 int		config_game(t_game *game);
 void	move_player_y(t_game *game, int i);
 void	move_player_x(t_game *game, int i);
 int		end_program(t_game *game);
+int		end_program_fail(t_game *game);
 void	player_position(t_game *game);
+void	error_msg(t_game *game, char *error_msg);
 
 #endif

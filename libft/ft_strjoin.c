@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: antero <antero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 21:47:15 by anvieira          #+#    #+#             */
-/*   Updated: 2023/05/04 21:38:09 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/05/17 03:24:33 by antero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,27 @@
 
 char	*ft_strjoin(char *s1, char *s2)
 {
-	int		sizetotal;
-	char	*res;
-	int		i;
-	int		j;
+	size_t	len_s1;
+	size_t	len_s2;
+	char	*final_str;
+	size_t	i;
+	size_t	j;
 
-	i = 0;
-	sizetotal = ft_strlen(s1) + ft_strlen(s2);
-	res = malloc(sizeof(char) * (sizetotal + 1));
-	if (!res || !s1 || !s2)
+	if (!s1 || !s2)
 		return (NULL);
-	while (s1[i] != 0)
-	{
-		res[i] = s1[i];
-		i++;
-	}
+	len_s1 = ft_strlen(s1);
+	len_s2 = ft_strlen(s2);
+	final_str = malloc((len_s1 + len_s2 + 1) * sizeof(char));
+	i = 0;
 	j = 0;
-	while (s2[j] != 0)
-	{
-		res[i] = s2[j];
-		i++;
-		j++;
-	}
-	res[sizetotal] = 0;
-	return (res);
+	if (final_str == NULL)
+		return (NULL);
+	while (j < len_s1)
+		final_str[i++] = s1[j++];
+	j = 0;
+	while (j < len_s2)
+		final_str[i++] = s2[j++];
+	final_str[i] = '\0';
+	free(s1);
+	return (final_str);
 }

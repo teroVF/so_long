@@ -6,7 +6,7 @@
 /*   By: antero <antero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 21:06:12 by antero            #+#    #+#             */
-/*   Updated: 2023/05/15 04:34:48 by antero           ###   ########.fr       */
+/*   Updated: 2023/05/17 04:57:58 by antero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	verify_item(t_game *game, int x, int y)
 	{
 		if (!game->elem.item)
 		{
-			ft_printf("you win\n");
+			ft_printf("you won\n");
 			end_program(game);
 		}
 		mlx_put_image_to_window(game->mlx, game->win.win,

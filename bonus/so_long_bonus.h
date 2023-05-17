@@ -6,13 +6,13 @@
 /*   By: antero <antero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:09:28 by antero            #+#    #+#             */
-/*   Updated: 2023/05/15 16:15:46 by antero           ###   ########.fr       */
+/*   Updated: 2023/05/17 16:57:21 by antero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG__BONUS_H
 # define SO_LONG_BONUS_H
-# define N_ENEMIES 30
+# define N_ENEMIES 10
 
 # include "../libft/libft.h"
 # include <fcntl.h>
