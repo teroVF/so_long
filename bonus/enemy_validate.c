@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   enemy_validate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antero <antero@student.42.fr>              +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 05:04:22 by antero            #+#    #+#             */
-/*   Updated: 2023/05/15 06:09:52 by antero           ###   ########.fr       */
+/*   Updated: 2023/05/18 02:24:28 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,25 +36,28 @@ int	enemy_path(t_game *game)
 	x = 0;
 	s.y = 0;
 	game->map_valid = ft_arrcpy(game->map);
-	printf("aqui: %s\n", game->map_valid[0]);
-	printf("aqui: %s\n", game->map_valid[1]);
 	while (game->map_valid[s.y] != NULL)
 		s.y++;
 	s.x = ft_strlen(game->map_valid[0]);
-
 	player_position(game);
 	fill_path(game->map_valid, game->py.x, game->py.y, s);
-
 	while (game->map_valid[y])
 	{
 		while (game->map_valid[y][x])
 		{
-			if (game->map_valid[y][x] == 'C')
+			if (game->map_valid[y][x] == 'C'
+				|| game->map_valid[y][x] == 'P' || game->map_valid[y][x] == 'E')
+				{
+				ft_free_xy(game->map_valid);
+				game->map_valid = NULL;
 				return (0);
+				}
 			x++;
 		}
 		y++;
 		x = 0;
 	}
+	ft_free_xy(game->map_valid);
+	game->map_valid = NULL;
 	return (1);
 }

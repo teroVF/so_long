@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   put_enemies.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antero <antero@student.42.fr>              +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 02:59:08 by antero            #+#    #+#             */
-/*   Updated: 2023/05/17 16:51:15 by antero           ###   ########.fr       */
+/*   Updated: 2023/05/18 01:35:05 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	enemy_init(t_game *game, int x, int y)
 	tmp_game = game->enemy;
 	tmp = (t_enemy *) malloc(sizeof(t_enemy));
 	if(tmp == NULL)
-		return ;
+		error_msg(game, MALLOC_ERR);
 	tmp->x = x;
 	tmp->y = y;
 	tmp->next = NULL;
@@ -81,7 +81,7 @@ int enemies_animation_1(t_game *game)
 		{
 			if (game->map[y][x] == 'Y')
 				mlx_put_image_to_window(game->mlx, game->win.win,
-					game->img.enemy_tt, (x * T_SIZE), (y * T_SIZE));
+					game->img.enemy_tt, (70 + x * T_SIZE), (y * T_SIZE));
 			x++;
 		}
 		y++;
@@ -103,7 +103,7 @@ void enemies_animation_2(t_game *game)
 		{
 			if (game->map[y][x] == 'Y')
 				mlx_put_image_to_window(game->mlx, game->win.win,
-					game->img.enemy_tev, (x * T_SIZE), (y * T_SIZE));
+					game->img.enemy_tev, (70 + x * T_SIZE), (y * T_SIZE));
 			x++;
 		}
 		y++;
@@ -111,10 +111,10 @@ void enemies_animation_2(t_game *game)
 	}
 }
 
-
 void enemies_animation(t_game *game)
 {
+	
     enemies_animation_1(game);
-    sleep(1); // Pausa de 3 segundos
+    sleep(1); // Pausa de 1 segundos
     enemies_animation_2(game);
 }

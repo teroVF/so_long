@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antero <antero@student.42.fr>              +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 21:06:12 by antero            #+#    #+#             */
-/*   Updated: 2023/05/15 04:31:03 by antero           ###   ########.fr       */
+/*   Updated: 2023/05/17 21:34:49 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	verify_item(t_game *game, int x, int y)
 			end_program(game);
 		}
 		mlx_put_image_to_window(game->mlx, game->win.win,
-			game->img.friend_t, (x * T_SIZE), (y * T_SIZE));
+			game->img.friend_t, (70 + x * T_SIZE), (y * T_SIZE));
 	}
 	else if (game->map[y][x] == 'Y')
 			end_program(game);
@@ -60,13 +60,13 @@ void	move_player_y(t_game *game, int i)
 		return ;
 	if (game->map[y][x] == 'E')
 		mlx_put_image_to_window(game->mlx, game->win.win,
-			game->img.exit_t, (x * T_SIZE), (y * T_SIZE));
+			game->img.exit_t, (70 + x * T_SIZE), (y * T_SIZE));
 	else
 		mlx_put_image_to_window(game->mlx, game->win.win,
-			game->img.floor_t, (x * T_SIZE), (y * T_SIZE));
+			game->img.floor_t, (70 + x * T_SIZE), (y * T_SIZE));
 	y += i;
 	mlx_put_image_to_window(game->mlx, game->win.win,
-		game->img.player_t, (x * T_SIZE), (y * T_SIZE));
+		game->img.player_t, (70 + x * T_SIZE), (y * T_SIZE));
 	game->py.y = y;
 	game->move_n++;
 	ft_printf("%d\n", game->move_n);
@@ -84,13 +84,13 @@ void	move_player_x(t_game *game, int i)
 		return ;
 	if (game->map[y][x] == 'E')
 		mlx_put_image_to_window(game->mlx, game->win.win,
-			game->img.exit_t, (x * T_SIZE), (y * T_SIZE));
+			game->img.exit_t, (70 + x * T_SIZE), (y * T_SIZE));
 	else
 		mlx_put_image_to_window(game->mlx, game->win.win,
-			game->img.floor_t, (x * T_SIZE), (y * T_SIZE));
+			game->img.floor_t, (70 + x * T_SIZE), (y * T_SIZE));
 	x += i;
 	mlx_put_image_to_window(game->mlx, game->win.win,
-		game->img.player_t, (x * T_SIZE), (y * T_SIZE));
+		game->img.player_t, (70 + x * T_SIZE), (y * T_SIZE));
 	game->py.x = x;
 	game->move_n++;
 	ft_printf("%d\n", game->move_n);

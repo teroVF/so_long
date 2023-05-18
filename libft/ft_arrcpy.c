@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_arrcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antero <antero@student.42.fr>              +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 05:39:23 by antero            #+#    #+#             */
-/*   Updated: 2023/05/15 06:16:00 by antero           ###   ########.fr       */
+/*   Updated: 2023/05/18 02:58:09 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,6 @@ char **ft_arrcpy(char **str)
 	while (str[i])
 	{
 		str_new[i] = ft_strdup(str[i]);
-		printf(" vai: %s\n", str_new[i]);
-		printf("vai: %s\n", str[i]);
-		printf("%p\n", str_new[i +1]);
 		i++;
 	}
 	str_new[i] = NULL;

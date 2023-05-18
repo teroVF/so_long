@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   enemies_move.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antero <antero@student.42.fr>              +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 01:10:40 by antero            #+#    #+#             */
-/*   Updated: 2023/05/15 05:00:27 by antero           ###   ########.fr       */
+/*   Updated: 2023/05/18 03:09:10 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ void	move_enemy_x(t_game *game, int i, t_enemy *enemy)
 	else if (game->map[y][x + i] == '0')
 	{
 		mlx_put_image_to_window(game->mlx, game->win.win,
-			game->img.floor_t, (x * T_SIZE), (y * T_SIZE));
+			game->img.floor_t, (80 + x * T_SIZE), (y * T_SIZE));
 		game->map[y][x] = '0';
 		x += i;
 		mlx_put_image_to_window(game->mlx, game->win.win,
-			game->img.enemy_tt, (x * T_SIZE), (y * T_SIZE));
+			game->img.enemy_tt, (80 + x * T_SIZE), (y * T_SIZE));
 		enemy->x = x;
 		game->map[y][x] = 'Y';
 	}
@@ -48,11 +48,11 @@ void	move_enemy_y(t_game *game, int i, t_enemy *enemy)
 	else if (game->map[y + i][x] == '0')
 	{
 		mlx_put_image_to_window(game->mlx, game->win.win,
-			game->img.floor_t, (x * T_SIZE), (y * T_SIZE));
+			game->img.floor_t, (70 + x * T_SIZE), (y * T_SIZE));
 		game->map[y][x] = '0';
 		y += i;
 		mlx_put_image_to_window(game->mlx, game->win.win,
-			game->img.enemy_tt, (x * T_SIZE), (y * T_SIZE));
+			game->img.enemy_tt, (70 + x * T_SIZE), (y * T_SIZE));
 		enemy->y = y;
 		game->map[y][x] = 'Y';
 	}

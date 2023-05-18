@@ -2,8 +2,8 @@
 #include <unistd.h>
 
 int main(void) {
-  printf("before");
-  sleep(4);
+  printf("before\n");
+  sleep(2);
   printf("after");
   return 0;
 }

@@ -12,7 +12,7 @@ RM = rm -fr
 #Sources
 FILES	=	main validate read config render move error
 
-BONUS_FILES	= main validate read config render move put_enemies enemies_move enemy_validate
+BONUS_FILES	= main validate error_bonus read config render move put_enemies enemies_move enemy_validate
 
 
 PS_SRC = $(addsuffix .c, $(FILES))
@@ -43,7 +43,7 @@ $(LIBFT):
 #MANDATORY -L./mlx na 42
 $(NAME):	$(LIBFT) $(PS_OBJ)
 			@echo "$(YELLOW) Compiling: $@ $(DEF_COLOR)"
-			@$(CC) $(CFLAGS) $(PS_OBJ) $(LIBFT) $(MLXFLAG) -o $@
+			@$(CC) $(CFLAGS) -L./mlx $(PS_OBJ) $ $(LIBFT) $(MLXFLAG) -o $@
 
 %.o:		%.c
 			@echo "$(YELLOW) Compiling: $< $(DEF_COLOR)"
@@ -51,7 +51,7 @@ $(NAME):	$(LIBFT) $(PS_OBJ)
 
 bonus:		$(OBJ_BONUS) $(LIBFT)
 			@echo "$(YELLOW) Compiling: so_long_bonus $(DEF_COLOR)"
-			@$(CC) $(CFLAGS) $(OBJ_BONUS) $(LIBFT) $(MLXFLAG) -o so_long_bonus
+			@$(CC) $(CFLAGS) -L./mlx $(OBJ_BONUS) $(LIBFT) $(MLXFLAG) -o so_long_bonus
 clean:
 			@cd libft && $(MAKE) clean
 			@find . -name "*.o" -type f -delete
@@ -65,4 +65,4 @@ fclean: 	clean
 re: 		fclean all
 			@echo "$(GREEN)Cleaned and rebuilt everything$(DEF_COLOR)"
 
-.PHONY: 		fclean all re clean
+.PHONY: 	fclean all re clean

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antero <antero@student.42.fr>              +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 00:58:01 by anvieira          #+#    #+#             */
-/*   Updated: 2023/05/15 06:02:43 by antero           ###   ########.fr       */
+/*   Updated: 2023/05/18 01:46:14 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ int	if_valid_path(t_game *game)
 	{
 		while (game->map_valid[y][x])
 		{
-			if (game->map_valid[y][x] == 'C')
+			if (game->map_valid[y][x] == 'C'
+				|| game->map_valid[y][x] == 'P' || game->map_valid[y][x] == 'E')
 				return (0);
 			x++;
 		}
@@ -117,10 +118,10 @@ static int	if_is_a_rect1(t_game *game)
 int	validate_map(t_game *game)
 {
 	if (if_is_a_rect1(game) == 0)
-		return (0);
+		error_msg(game, INVALID_FORMAT);
 	if (only_char(game->map) == 0)
-		return (0);
+		error_msg(game, INVALID_ENTITY);
 	if (if_valid_path(game) == 0)
-		return (0);
+		error_msg(game, INVALID_FORMAT);
 	return (1);
 }

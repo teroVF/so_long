@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antero <antero@student.42.fr>              +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 00:58:01 by anvieira          #+#    #+#             */
-/*   Updated: 2023/05/17 04:10:30 by antero           ###   ########.fr       */
+/*   Updated: 2023/05/17 21:21:15 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ int	if_valid_path(t_game *game)
 	{
 		while (game->map_valid[y][x])
 		{
-			if (game->map_valid[y][x] == 'C')
+			if (game->map_valid[y][x] == 'C'
+				|| game->map_valid[y][x] == 'P' || game->map_valid[y][x] == 'E')
 				return (0);
 			x++;
 		}

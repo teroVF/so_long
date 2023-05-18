@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   config.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antero <antero@student.42.fr>              +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 16:34:20 by antero            #+#    #+#             */
-/*   Updated: 2023/05/13 15:21:00 by antero           ###   ########.fr       */
+/*   Updated: 2023/05/18 01:47:53 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ static void	window_xy_init(t_game *game)
 	int		i;
 
 	i = 0;
-	game->win.win_x = ft_strlen(game->map[1]) * T_SIZE;
+	game->win.win_x = ft_strlen(game->map[1]) * T_SIZE + 70;
 	game->win.win_y = 0;
 	while (game->map[i])
 		i++;
@@ -107,15 +107,9 @@ void	player_position(t_game *game)
 int	config_game(t_game *game)
 {
 	if (count_collectibles(game) == 0)
-	{
-		end_program(game);
-		return (0);
-	}
+		error_msg(game, NO_COLLECTIBLES);
 	if (count_exit_and_start(game) == 0)
-	{
-		end_program(game);
-		return (0);
-	}
+		error_msg(game, INVALID_SETUP);
 	window_xy_init(game);
 	generate_enemies(game);
 	return (1);

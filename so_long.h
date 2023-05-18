@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antero <antero@student.42.fr>              +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:09:28 by antero            #+#    #+#             */
-/*   Updated: 2023/05/17 04:56:35 by antero           ###   ########.fr       */
+/*   Updated: 2023/05/18 00:21:00 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "libft/libft.h"
 # include <fcntl.h>
 # include "libft/libft.h"
-# include "mlx.h"
+# include "mlx/mlx.h"
 # include "image.h"
 # include "keys.h"
 # include "error_msg.h"
@@ -62,7 +62,7 @@ typedef struct s_game
 	char		**map_valid;
 	int			move_n;
 
-}		t_game;
+}	t_game;
 
 int		validate_map(t_game *game);
 char	**read_map(char *pwd, t_game *game);
