@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   counter.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 23:54:39 by anvieira          #+#    #+#             */
-/*   Updated: 2023/05/19 02:58:56 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/05/20 18:22:31 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	counter_plus_one(t_game *game)
 	int		n;
 
 	n = game->move_n;
-	if (n == 0)
+	if (n == 0 || n == 9999)
 		return ;
 	counter_number(game, n % 10, 60);
 	n /= 10;
@@ -93,4 +93,27 @@ void	counter_plus_one(t_game *game)
 	if (n == 0)
 		return ;
 	counter_number(game, n % 10, 0);
+}
+
+int	counter_zeros(char **map)
+{
+	int	y;
+	int	x;
+	int	i;
+
+	x = 0;
+	y = 0;
+	i = 0;
+	while (map[y])
+	{
+		while (map[y][x])
+		{
+			if (map[y][x] == '0')
+				i++;
+			x++;
+		}
+		y++;
+		x = 0;
+	}
+	return (i);
 }

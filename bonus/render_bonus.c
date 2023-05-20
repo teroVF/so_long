@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 19:14:23 by anvieira          #+#    #+#             */
-/*   Updated: 2023/05/20 04:36:39 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/05/20 14:38:12 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,11 @@ void	render_map(t_game *game)
 		while (game->map[y][x])
 		{
 			put_image(game, y, x);
-		x++;
+			x++;
 		}
 	x = 0;
 	y++;
 	}
-	counter_init(game);
 }
 
 int	read_keys(int keypress, t_game *game)
@@ -84,6 +83,7 @@ void	render(t_game *game)
 	img_init(game);
 	img_init_bonus(game);
 	render_map(game);
+	counter_init(game);
 	mlx_key_hook(game->win.win, read_keys, game);
 	mlx_hook(game->win.win, 17, 1L << 0, end_program, game);
 	mlx_loop(game->mlx);

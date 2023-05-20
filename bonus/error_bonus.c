@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 03:05:54 by antero            #+#    #+#             */
-/*   Updated: 2023/05/20 04:12:45 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/05/20 14:36:40 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ void	img_destruction(t_game *game)
 {
 	mlx_destroy_image(game->mlx, game->img.player_t);
 	mlx_destroy_image(game->mlx, game->img.floor_t);
-	mlx_destroy_image(game->mlx, game->img.wall_t);
 	mlx_destroy_image(game->mlx, game->img.items_t);
-	mlx_destroy_image(game->mlx, game->img.friend_t);
+	mlx_destroy_image(game->mlx, game->img.wall_t);
 	mlx_destroy_image(game->mlx, game->img.exit_t);
+	mlx_destroy_image(game->mlx, game->img.friend_t);
 	mlx_destroy_image(game->mlx, game->img.enemy_t);
 	mlx_destroy_image(game->mlx, game->img.enemy_tt);
 	mlx_destroy_image(game->mlx, game->img.player_l);

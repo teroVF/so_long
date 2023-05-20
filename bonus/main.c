@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 02:58:37 by anvieira          #+#    #+#             */
-/*   Updated: 2023/05/20 04:00:20 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/05/20 17:36:22 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,14 @@ static t_game	*game_init(char *pwd)
 	game->mlx = NULL;
 	game->win.win = NULL;
 	game->enemy = NULL;
+	game->map = NULL;
+	game->map_valid = NULL;
 	game->img.check = 0;
 	game->map = read_map(pwd, game);
 	game->map_valid = read_map(pwd, game);
 	if (game->map == NULL || game->map_valid == NULL)
-		end_program(game);
-	if (validate_map(game) == 0)
-		end_program(game);
+		error_msg(game, EMPTY_MAP_FILE);
+	validate_map(game);
 	return (game);
 }
 

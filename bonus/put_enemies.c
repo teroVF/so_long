@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   put_enemies.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 02:59:08 by antero            #+#    #+#             */
-/*   Updated: 2023/05/20 04:37:38 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/05/20 18:22:11 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,11 @@ int	rand_num(int min, int max)
 	return (min + rand() % (max - min + 1));
 }
 
-void	generate_enemies(t_game *game)
+void	generate_enemies(t_game *game, int x, int y, int i)
 {
-	int		x;
-	int		y;
-	int		i;
+	int		n;
 
-	x = 0;
-	y = 0;
-	i = 0;
+	n = 0;
 	while (i < N_ENEMIES)
 	{
 		x = rand_num(0, game->width -1);
@@ -61,7 +57,11 @@ void	generate_enemies(t_game *game)
 				i++;
 			}
 			else
+			{
 				game->map[y][x] = '0';
+				if (++n == counter_zeros(game->map))
+					error_msg(game, ENEMIES_LOCATION_FAIL);
+			}
 		}
 	}
 }

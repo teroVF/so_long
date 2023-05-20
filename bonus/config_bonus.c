@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   config.c                                           :+:      :+:    :+:   */
+/*   config_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 16:34:20 by antero            #+#    #+#             */
-/*   Updated: 2023/05/19 02:58:49 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/05/20 18:01:36 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,6 @@ int	config_game(t_game *game)
 	if (count_exit_and_start(game) == 0)
 		error_msg(game, INVALID_SETUP);
 	window_xy_init(game);
-	generate_enemies(game);
+	generate_enemies(game, 0, 0, 0);
 	return (1);
 }

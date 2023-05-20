@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   img.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 04:35:21 by anvieira          #+#    #+#             */
-/*   Updated: 2023/05/20 04:35:43 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/05/20 17:25:25 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	img_init(t_game *game)
 {
 	int	s;
 
-	s = T_SIZE;
 	game->img.check = 1;
+	s = T_SIZE;
 	game->img.player_t = mlx_xpm_file_to_image(game->mlx, PLAYER, &s, &s);
 	if (!game->img.player_t)
 		error_msg(game, PLAYER_XPM_ERR);

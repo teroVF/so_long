@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_msg.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 03:53:52 by antero            #+#    #+#             */
-/*   Updated: 2023/05/19 03:03:12 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/05/20 18:23:05 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@
 # define OPEN_MAP_FILE_ERR "Failed to open map's file"
 # define CLOSE_MAP_FILE_ERR "Failed to close map's file"
 # define EMPTY_MAP_FILE "Map file is empty"
+# define ENEMIES_LOCATION_FAIL "There are too many enemies."
 
 /* XPM Opening */
 

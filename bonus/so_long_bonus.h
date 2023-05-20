@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 02:58:17 by anvieira          #+#    #+#             */
-/*   Updated: 2023/05/20 04:39:56 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/05/20 18:21:10 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_BONUS_H
 # define SO_LONG_BONUS_H
-# define N_ENEMIES 1
+# define N_ENEMIES 10
 
 # include "../libft/libft.h"
 # include <fcntl.h>
@@ -78,7 +78,7 @@ void	move_player_x(t_game *game, int i);
 int		end_program(t_game *game);
 int		end_program_fail(t_game *game);
 void	player_position(t_game *game);
-void	generate_enemies(t_game *game);
+void	generate_enemies(t_game *game, int x, int y, int i);
 void	enemies_animation(t_game *game);
 int		rand_num(int min, int max);
 void	enemy_turn(t_game *game);
@@ -89,5 +89,6 @@ void	counter_plus_one(t_game *game);
 int		if_valid_path(t_game *game);
 void	img_init(t_game *game);
 void	img_init_bonus(t_game *game);
+int		counter_zeros(char **map);
 
 #endif
