@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antero <antero@student.42.fr>              +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 19:14:23 by anvieira          #+#    #+#             */
-/*   Updated: 2023/05/17 04:57:36 by antero           ###   ########.fr       */
+/*   Updated: 2023/05/19 03:11:04 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,22 @@ void	img_init(t_game *game)
 
 	s = T_SIZE;
 	game->img.player_t = mlx_xpm_file_to_image(game->mlx, PLAYER, &s, &s);
-	if(!game->img.player_t)
+	if (!game->img.player_t)
 		error_msg(game, PLAYER_XPM_ERR);
 	game->img.floor_t = mlx_xpm_file_to_image(game->mlx, FLOOR_TILE, &s, &s);
-	if(!game->img.floor_t)
+	if (!game->img.floor_t)
 		error_msg(game, FLOOR_TILE);
 	game->img.items_t = mlx_xpm_file_to_image(game->mlx, COLLECTIBLES, &s, &s);
-	if(!game->img.items_t)
+	if (!game->img.items_t)
 		error_msg(game, COLLECTIBLE_XPM_ERR);
 	game->img.wall_t = mlx_xpm_file_to_image(game->mlx, TREE_TILE, &s, &s);
-	if(!game->img.wall_t)
+	if (!game->img.wall_t)
 		error_msg(game, WALL_XPM_ERR);
 	game->img.exit_t = mlx_xpm_file_to_image(game->mlx, EXIT, &s, &s);
-	if(!game->img.exit_t)
+	if (!game->img.exit_t)
 		error_msg(game, EXIT_XPM_ERR);
 	game->img.friend_t = mlx_xpm_file_to_image(game->mlx, FRIENDS, &s, &s);
-	if(!game->img.friend_t)
+	if (!game->img.friend_t)
 		error_msg(game, FRIEND_XPM_ERR);
 }
 

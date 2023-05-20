@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   config.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 16:34:20 by antero            #+#    #+#             */
-/*   Updated: 2023/05/18 01:47:53 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/05/19 02:58:49 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ static void	window_xy_init(t_game *game)
 	int		i;
 
 	i = 0;
-	game->win.win_x = ft_strlen(game->map[1]) * T_SIZE + 70;
+	game->win.win_x = ft_strlen(game->map[1]) * T_SIZE + 80;
 	game->win.win_y = 0;
 	while (game->map[i])
 		i++;

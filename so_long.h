@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:09:28 by antero            #+#    #+#             */
-/*   Updated: 2023/05/18 00:21:00 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/05/19 04:51:25 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@
 # include "image.h"
 # include "keys.h"
 # include "error_msg.h"
+
+typedef struct s_siz {
+	int		y;
+	int		x;
+}	t_siz;
 
 typedef struct s_elements
 {
@@ -74,5 +79,5 @@ int		end_program(t_game *game);
 int		end_program_fail(t_game *game);
 void	player_position(t_game *game);
 void	error_msg(t_game *game, char *error_msg);
-
+int		if_valid_path(t_game *game);
 #endif

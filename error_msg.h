@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   error_msg.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antero <antero@student.42.fr>              +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 03:53:52 by antero            #+#    #+#             */
-/*   Updated: 2023/05/17 04:49:48 by antero           ###   ########.fr       */
+/*   Updated: 2023/05/19 03:14:34 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#ifndef ERROR_MESSAGES_H
-# define ERROR_MESSAGES_H
+#ifndef ERROR_MSG_H
+# define ERROR_MSG_H
 
 /* ERROR MESSAGES */
 

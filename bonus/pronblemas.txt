@@ -1,0 +1,5 @@
+sigfault when one of the images is not upload correctly
+infinite loop when there isnt space to put the enemies
+improve de animation to achive the sprite animation
+
+I have correct the norma error in mandatorygit

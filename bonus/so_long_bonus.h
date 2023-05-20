@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/03 15:09:28 by antero            #+#    #+#             */
-/*   Updated: 2023/05/18 02:08:03 by anvieira         ###   ########.fr       */
+/*   Created: 2023/05/19 02:58:17 by anvieira          #+#    #+#             */
+/*   Updated: 2023/05/20 04:39:56 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_BONUS_H
 # define SO_LONG_BONUS_H
-# define N_ENEMIES 20
+# define N_ENEMIES 1
 
 # include "../libft/libft.h"
 # include <fcntl.h>
@@ -21,6 +21,11 @@
 # include "image_bonus.h"
 # include "keys_bonus.h"
 # include "error_msg.h"
+
+typedef struct s_siz {
+	int		y;
+	int		x;
+}	t_siz;
 
 typedef struct s_elements
 {
@@ -42,26 +47,12 @@ typedef struct s_enemy
 	struct s_enemy	*next;
 }	t_enemy;
 
-
 typedef struct s_window
 {
 	void	*win;
 	int		win_x;
 	int		win_y;
 }	t_window;
-
-typedef struct s_img
-{
-	void	*wall_t;
-	void	*floor_t;
-	void	*player_t;
-	void	*items_t;
-	void	*exit_t;
-	void	*friend_t;
-	void	*enemy_t;
-	void	*enemy_tt;
-	void	*enemy_tev;
-}	t_img;
 
 typedef struct s_game
 {
@@ -88,10 +79,15 @@ int		end_program(t_game *game);
 int		end_program_fail(t_game *game);
 void	player_position(t_game *game);
 void	generate_enemies(t_game *game);
-void 	enemies_animation(t_game *game);
+void	enemies_animation(t_game *game);
 int		rand_num(int min, int max);
 void	enemy_turn(t_game *game);
 int		enemy_path(t_game *game);
 void	error_msg(t_game *game, char *error_msg);
+void	counter_init(t_game *game);
+void	counter_plus_one(t_game *game);
+int		if_valid_path(t_game *game);
+void	img_init(t_game *game);
+void	img_init_bonus(t_game *game);
 
 #endif

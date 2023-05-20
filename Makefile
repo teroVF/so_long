@@ -10,9 +10,10 @@ INCLUDES = push_swap.h
 RM = rm -fr
 
 #Sources
-FILES	=	main validate read config render move error
+FILES	=	main validate read config render move error flood
 
-BONUS_FILES	= main validate error_bonus read config render move put_enemies enemies_move enemy_validate
+BONUS_FILES	=	main validate_bonus error_bonus read_bonus config_bonus render_bonus  \
+				put_enemies enemies_move enemy_validate counter move_bonus flood_bonus img
 
 
 PS_SRC = $(addsuffix .c, $(FILES))

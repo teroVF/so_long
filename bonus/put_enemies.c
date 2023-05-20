@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   put_enemies.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 02:59:08 by antero            #+#    #+#             */
-/*   Updated: 2023/05/18 01:35:05 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/05/20 04:37:38 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	enemy_init(t_game *game, int x, int y)
 
 	tmp_game = game->enemy;
 	tmp = (t_enemy *) malloc(sizeof(t_enemy));
-	if(tmp == NULL)
+	if (tmp == NULL)
 		error_msg(game, MALLOC_ERR);
 	tmp->x = x;
 	tmp->y = y;
@@ -34,9 +34,9 @@ void	enemy_init(t_game *game, int x, int y)
 	tmp_game->next = tmp;
 }
 
-int rand_num(int min, int max)
+int	rand_num(int min, int max)
 {
-	return min + rand() % (max - min + 1);
+	return (min + rand() % (max - min + 1));
 }
 
 void	generate_enemies(t_game *game)
@@ -52,7 +52,7 @@ void	generate_enemies(t_game *game)
 	{
 		x = rand_num(0, game->width -1);
 		y = rand_num(0, game->height - 1);
-		if(game->map[y][x] == '0')
+		if (game->map[y][x] == '0')
 		{
 			game->map[y][x] = 'Y';
 			if (enemy_path(game) == 1)
@@ -63,12 +63,10 @@ void	generate_enemies(t_game *game)
 			else
 				game->map[y][x] = '0';
 		}
-
 	}
 }
 
-
-int enemies_animation_1(t_game *game)
+void	enemies_animation(t_game *game)
 {
 	int		x;
 	int		y;
@@ -81,40 +79,10 @@ int enemies_animation_1(t_game *game)
 		{
 			if (game->map[y][x] == 'Y')
 				mlx_put_image_to_window(game->mlx, game->win.win,
-					game->img.enemy_tt, (70 + x * T_SIZE), (y * T_SIZE));
+					game->img.enemy_tt, (80 + x * T_SIZE), (y * T_SIZE));
 			x++;
 		}
 		y++;
 		x = 0;
 	}
-	return (1);
-}
-
-void enemies_animation_2(t_game *game)
-{
-	int		x;
-	int		y;
-
-	x = 0;
-	y = 0;
-	while (game->map[y] != NULL)
-	{
-		while (game->map[y][x])
-		{
-			if (game->map[y][x] == 'Y')
-				mlx_put_image_to_window(game->mlx, game->win.win,
-					game->img.enemy_tev, (70 + x * T_SIZE), (y * T_SIZE));
-			x++;
-		}
-		y++;
-		x = 0;
-	}
-}
-
-void enemies_animation(t_game *game)
-{
-	
-    enemies_animation_1(game);
-    sleep(1); // Pausa de 1 segundos
-    enemies_animation_2(game);
 }
