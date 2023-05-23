@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   image_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 02:45:41 by antero            #+#    #+#             */
-/*   Updated: 2023/05/20 04:09:36 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/05/23 16:01:15 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

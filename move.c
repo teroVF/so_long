@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 21:06:12 by antero            #+#    #+#             */
-/*   Updated: 2023/05/19 03:15:09 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/05/23 17:33:20 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,10 @@ void	verify_item(t_game *game, int x, int y)
 		game->elem.item--;
 		game->map[y][x] = '0';
 	}
-	else if (game->map[y][x] == 'E')
+	else if (game->map[y][x] == 'E' && !game->elem.item)
 	{
-		if (!game->elem.item)
-		{
-			ft_printf("you won\n");
-			end_program(game);
-		}
-		mlx_put_image_to_window(game->mlx, game->win.win,
-			game->img.friend_t, (x * T_SIZE), (y * T_SIZE));
+		ft_printf("you won\n");
+		end_program(game);
 	}
 }
 
@@ -38,9 +33,11 @@ int	if_a_valide_move(t_game *game, int i, char c)
 
 	x = game->py.x;
 	y = game->py.y;
-	if (game->map[y][x + i] == '1' && c == 'h')
+	if ((game->map[y][x + i] == '1' || game->map[y][x + i] == 'E')
+		&& c == 'h' && game->elem.item)
 		return (0);
-	else if (game->map[y + i][x] == '1' && c == 'v')
+	else if ((game->map[y + i][x] == '1' || game->map[y + i][x] == 'E')
+		&& c == 'v' && game->elem.item)
 		return (0);
 	return (1);
 }
@@ -52,15 +49,14 @@ void	move_player_y(t_game *game, int i)
 
 	x = game->py.x;
 	y = game->py.y;
+	ft_printf("entrou");
+	ft_printf("x: %d, y: %d\n", x , y);
 	if (if_a_valide_move(game, i, 'v') == 0)
 		return ;
-	if (game->map[y][x] == 'E')
-		mlx_put_image_to_window(game->mlx, game->win.win,
-			game->img.exit_t, (x * T_SIZE), (y * T_SIZE));
-	else
-		mlx_put_image_to_window(game->mlx, game->win.win,
+	mlx_put_image_to_window(game->mlx, game->win.win,
 			game->img.floor_t, (x * T_SIZE), (y * T_SIZE));
 	y += i;
+	ft_printf("x: %d, y: %d\n", x , y);
 	mlx_put_image_to_window(game->mlx, game->win.win,
 		game->img.player_t, (x * T_SIZE), (y * T_SIZE));
 	game->py.y = y;
@@ -78,11 +74,7 @@ void	move_player_x(t_game *game, int i)
 	y = game->py.y;
 	if (if_a_valide_move(game, i, 'h') == 0)
 		return ;
-	if (game->map[y][x] == 'E')
-		mlx_put_image_to_window(game->mlx, game->win.win,
-			game->img.exit_t, (x * T_SIZE), (y * T_SIZE));
-	else
-		mlx_put_image_to_window(game->mlx, game->win.win,
+	mlx_put_image_to_window(game->mlx, game->win.win,
 			game->img.floor_t, (x * T_SIZE), (y * T_SIZE));
 	x += i;
 	mlx_put_image_to_window(game->mlx, game->win.win,

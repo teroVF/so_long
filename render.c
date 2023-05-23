@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 19:14:23 by anvieira          #+#    #+#             */
-/*   Updated: 2023/05/19 03:11:04 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/05/23 17:14:38 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	img_init(t_game *game)
+static void	img_init(t_game *game)
 {
 	int	s;
 
@@ -37,6 +37,25 @@ void	img_init(t_game *game)
 		error_msg(game, FRIEND_XPM_ERR);
 }
 
+static void	put_image(t_game *game, int y, int x)
+{
+	if (game->map[y][x] == '1')
+		mlx_put_image_to_window(game->mlx, game->win.win,
+			game->img.wall_t, (x * T_SIZE), (y * T_SIZE));
+	else if (game->map[y][x] == '0')
+		mlx_put_image_to_window(game->mlx, game->win.win,
+			game->img.floor_t, (x * T_SIZE), (y * T_SIZE));
+	else if (game->map[y][x] == 'P')
+		mlx_put_image_to_window(game->mlx, game->win.win,
+			game->img.player_t, (x * T_SIZE), (y * T_SIZE));
+	else if (game->map[y][x] == 'C')
+		mlx_put_image_to_window(game->mlx, game->win.win,
+			game->img.items_t, (x * T_SIZE), (y * T_SIZE));
+	else if (game->map[y][x] == 'E')
+		mlx_put_image_to_window(game->mlx, game->win.win,
+			game->img.exit_t, (x * T_SIZE), (y * T_SIZE));
+}
+
 void	render_map(t_game *game)
 {
 	int		x;
@@ -48,22 +67,8 @@ void	render_map(t_game *game)
 	{
 		while (game->map[y][x])
 		{
-			if (game->map[y][x] == '1')
-				mlx_put_image_to_window(game->mlx, game->win.win,
-					game->img.wall_t, (x * T_SIZE), (y * T_SIZE));
-			else if (game->map[y][x] == '0')
-				mlx_put_image_to_window(game->mlx, game->win.win,
-					game->img.floor_t, (x * T_SIZE), (y * T_SIZE));
-			else if (game->map[y][x] == 'P')
-				mlx_put_image_to_window(game->mlx, game->win.win,
-					game->img.player_t, (x * T_SIZE), (y * T_SIZE));
-			else if (game->map[y][x] == 'C')
-				mlx_put_image_to_window(game->mlx, game->win.win,
-					game->img.items_t, (x * T_SIZE), (y * T_SIZE));
-			else if (game->map[y][x] == 'E')
-				mlx_put_image_to_window(game->mlx, game->win.win,
-					game->img.exit_t, (x * T_SIZE), (y * T_SIZE));
-		x++;
+			put_image(game, y, x);
+			x++;
 		}
 	x = 0;
 	y++;

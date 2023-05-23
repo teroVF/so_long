@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 00:58:01 by anvieira          #+#    #+#             */
-/*   Updated: 2023/05/19 04:04:40 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/05/20 14:58:20 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ static int	if_is_a_rect1(char **map)
 {
 	size_t		i;
 	size_t		length;
+
 	i = 0;
 	length = ft_strlen(map[0]);
 	while (map[i])

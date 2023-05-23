@@ -6,7 +6,7 @@
 /*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 04:35:21 by anvieira          #+#    #+#             */
-/*   Updated: 2023/05/20 17:25:25 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/05/23 16:24:41 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,6 @@ void	img_init(t_game *game)
 	game->img.exit_t = mlx_xpm_file_to_image(game->mlx, EXIT, &s, &s);
 	if (!game->img.exit_t)
 		error_msg(game, EXIT_XPM_ERR);
-	game->img.friend_t = mlx_xpm_file_to_image(game->mlx, FRIENDS, &s, &s);
-	if (!game->img.friend_t)
-		error_msg(game, FRIEND_XPM_ERR);
 }
 
 void	img_init_bonus(t_game *game)

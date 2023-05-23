@@ -6,13 +6,13 @@
 /*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 05:39:23 by antero            #+#    #+#             */
-/*   Updated: 2023/05/18 02:58:09 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/05/20 14:48:21 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char **ft_arrcpy(char **str)
+char	**ft_arrcpy(char **str)
 {
 	int		i;
 	char	**str_new;

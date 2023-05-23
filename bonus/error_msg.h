@@ -6,7 +6,7 @@
 /*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 03:53:52 by antero            #+#    #+#             */
-/*   Updated: 2023/05/20 18:23:05 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/05/23 16:23:19 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@
 # define PLAYER_XPM_ERR "Failed to open player image"
 # define COLLECTIBLE_XPM_ERR "Failed to open collectible image"
 # define EXIT_XPM_ERR "Failed to open exit image"
-# define FRIEND_XPM_ERR "Failed to open friend image"
 # define COUNTER_XPM_ERR "Failed to open number image"
 
 #endif // ERROR_MESSAGES_H

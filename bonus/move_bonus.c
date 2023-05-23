@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 21:06:12 by antero            #+#    #+#             */
-/*   Updated: 2023/05/20 03:35:34 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/05/23 16:26:49 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,10 @@ void	verify_item(t_game *game, int x, int y)
 		if (game->elem.item == 0)
 			enemies_animation(game);
 	}
-	else if (game->map[y][x] == 'E')
+	else if (game->map[y][x] == 'E' && !game->elem.item)
 	{
-		if (!game->elem.item)
-		{
-			ft_printf("you won\n");
-			end_program(game);
-		}
-		mlx_put_image_to_window(game->mlx, game->win.win,
-			game->img.friend_t, (80 + x * T_SIZE), (y * T_SIZE));
+		ft_printf("you won\n");
+		end_program(game);
 	}
 	else if (game->map[y][x] == 'Y')
 		end_program(game);

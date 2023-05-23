@@ -6,13 +6,13 @@
 /*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 02:58:17 by anvieira          #+#    #+#             */
-/*   Updated: 2023/05/20 18:21:10 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/05/23 16:02:09 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_BONUS_H
 # define SO_LONG_BONUS_H
-# define N_ENEMIES 10
+# define N_ENEMIES 40
 
 # include "../libft/libft.h"
 # include <fcntl.h>

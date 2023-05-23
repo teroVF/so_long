@@ -1,2 +1,0 @@
-sigfault when one of the images is not upload correctly
-improve de animation to achive the sprite animation
