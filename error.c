@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 03:05:54 by antero            #+#    #+#             */
-/*   Updated: 2023/05/19 03:10:16 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/05/25 19:15:09 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ int	end_program_fail(t_game *game)
 {
 	if (!game)
 		exit(EXIT_FAILURE);
-	img_destruction(game);
 	if (game->win.win)
 		mlx_destroy_window(game->mlx, game->win.win);
 	if (game->mlx)

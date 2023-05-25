@@ -6,7 +6,7 @@
 /*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 02:58:37 by anvieira          #+#    #+#             */
-/*   Updated: 2023/05/20 17:36:22 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/05/25 19:28:41 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ static t_game	*game_init(char *pwd)
 	game->enemy = NULL;
 	game->map = NULL;
 	game->map_valid = NULL;
-	game->img.check = 0;
 	game->map = read_map(pwd, game);
 	game->map_valid = read_map(pwd, game);
 	if (game->map == NULL || game->map_valid == NULL)
@@ -47,7 +46,7 @@ int	main(int argc, char *argv[])
 {
 	t_game	*game;
 
-	if (argc < 2)
+	if (argc != 2)
 		error_msg(NULL, INVALID_NBR_ARGS);
 	if (argv[1] == NULL)
 		error_msg(NULL, NULL_MAP);

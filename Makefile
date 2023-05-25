@@ -41,7 +41,6 @@ all: $(NAME)
 $(LIBFT):
 	@cd libft && $(MAKE) all
 
-#MANDATORY -L./mlx na 42
 $(NAME):	$(LIBFT) $(PS_OBJ)
 			@echo "$(YELLOW) Compiling: $@ $(DEF_COLOR)"
 			@$(CC) $(CFLAGS) -L./mlx $(PS_OBJ) $ $(LIBFT) $(MLXFLAG) -o $@

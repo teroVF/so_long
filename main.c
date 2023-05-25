@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 00:57:15 by anvieira          #+#    #+#             */
-/*   Updated: 2023/05/19 03:12:28 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/05/25 20:16:03 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	main(int argc, char *argv[])
 {
 	t_game	*game;
 
-	if (argc < 2)
+	if (argc != 2)
 		error_msg(NULL, INVALID_NBR_ARGS);
 	if (argv[1] == NULL)
 		error_msg(NULL, NULL_MAP);

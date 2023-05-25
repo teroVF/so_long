@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_msg.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvieira <anvieira@student.42porto.com     +#+  +:+       +#+        */
+/*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 03:53:52 by antero            #+#    #+#             */
-/*   Updated: 2023/05/19 03:14:34 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/05/25 00:13:01 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 
 # define INVALID_ENTITY "Invalid entity on map's file"
 # define INVALID_FORMAT "Invalid map format"
-# define INVALID_SETUP "Invalid number of Exits (E) or (P)"
+# define INVALID_SETUP "Invalid number of Exits (E) or Players (P)"
 # define NO_COLLECTIBLES "Map doesn't have any Collectible (C)"
 
 # define UNACHIEVABLE_ENTITIES "Map has unachievable entities"

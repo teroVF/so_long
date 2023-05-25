@@ -6,7 +6,7 @@
 /*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 02:45:41 by antero            #+#    #+#             */
-/*   Updated: 2023/05/23 16:01:15 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/05/25 19:13:06 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@
 
 typedef struct s_img
 {
-	bool	check;
 	void	*wall_t;
 	void	*floor_t;
 	void	*player_t;
@@ -44,7 +43,6 @@ typedef struct s_img
 	void	*player_r;
 	void	*items_t;
 	void	*exit_t;
-	void	*friend_t;
 	void	*enemy_t;
 	void	*enemy_tt;
 	void	*enemy_tev;

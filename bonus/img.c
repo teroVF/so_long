@@ -6,7 +6,7 @@
 /*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 04:35:21 by anvieira          #+#    #+#             */
-/*   Updated: 2023/05/23 16:24:41 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/05/25 19:16:53 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	img_init(t_game *game)
 {
 	int	s;
 
-	game->img.check = 1;
 	s = T_SIZE;
 	game->img.player_t = mlx_xpm_file_to_image(game->mlx, PLAYER, &s, &s);
 	if (!game->img.player_t)
@@ -50,6 +49,6 @@ void	img_init_bonus(t_game *game)
 	if (!game->img.player_l)
 		error_msg(game, PLAYER_XPM_ERR);
 	game->img.player_r = mlx_xpm_file_to_image(game->mlx, PLAYER_R, &s, &s);
-	if (!game->img.player_l)
+	if (!game->img.player_r)
 		error_msg(game, PLAYER_XPM_ERR);
 }

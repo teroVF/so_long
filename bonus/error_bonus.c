@@ -6,7 +6,7 @@
 /*   By: anvieira <anvieira@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 03:05:54 by antero            #+#    #+#             */
-/*   Updated: 2023/05/20 14:36:40 by anvieira         ###   ########.fr       */
+/*   Updated: 2023/05/25 19:21:01 by anvieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	img_destruction(t_game *game)
 	mlx_destroy_image(game->mlx, game->img.items_t);
 	mlx_destroy_image(game->mlx, game->img.wall_t);
 	mlx_destroy_image(game->mlx, game->img.exit_t);
-	mlx_destroy_image(game->mlx, game->img.friend_t);
 	mlx_destroy_image(game->mlx, game->img.enemy_t);
 	mlx_destroy_image(game->mlx, game->img.enemy_tt);
 	mlx_destroy_image(game->mlx, game->img.player_l);
@@ -66,6 +65,8 @@ int	end_program(t_game *game)
 
 int	end_program_fail(t_game *game)
 {
+	t_enemy		*tmp;
+
 	if (!game)
 		exit(EXIT_FAILURE);
 	if (game->win.win)
@@ -79,6 +80,12 @@ int	end_program_fail(t_game *game)
 		ft_free_xy(game->map);
 	if (game->map_valid)
 		ft_free_xy(game->map_valid);
+	while (game->enemy != NULL)
+	{
+		tmp = game->enemy->next;
+		free(game->enemy);
+		game->enemy = tmp;
+	}
 	free(game);
 	exit(EXIT_FAILURE);
 }
